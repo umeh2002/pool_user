@@ -22,7 +22,7 @@ const createUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () 
         const { name, email, location } = req.body;
         const { secure_url, public_id } = yield (0, streamUpload_1.streamUpload)(req);
         const user = yield authModel_1.default.create({
-            name, email, location, avatar: secure_url, avatarURL: public_id, likes: 0
+            name, email, location, avatar: secure_url, avatarURL: public_id,
         });
         (_a = user.friends) === null || _a === void 0 ? void 0 : _a.push(new mongoose_1.default.Types.ObjectId(user._id));
         user.save();

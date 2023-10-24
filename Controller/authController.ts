@@ -12,7 +12,7 @@ export const createUser = async(req: any, res: Response)=>{
 
 
      const user = await authModel.create({
-        name, email, location, avatar:secure_url, avatarURL:public_id, likes:0
+        name, email, location, avatar:secure_url, avatarURL:public_id,
      })
 
      user.friends?.push(new mongoose.Types.ObjectId(user!._id))

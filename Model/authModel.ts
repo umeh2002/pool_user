@@ -31,7 +31,7 @@ const userModel = new mongoose.Schema<iUserData>(
     },
     likes: [
       {
-        type: mongoose.Types.ObjectId,
+        type:Array,
       },
     ],
   },

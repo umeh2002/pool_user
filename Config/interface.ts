@@ -7,7 +7,7 @@ export interface iUser {
   friends?: {}[];
   accept?: boolean
   declined?: boolean
-  likes?: [];
+  likes?: {}[];
   avatar?: string
   avatarURL?: string
 }

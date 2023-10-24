@@ -33,7 +33,7 @@ const userModel = new mongoose_1.default.Schema({
     },
     likes: [
         {
-            type: Array,
+            type: mongoose_1.default.Types.ObjectId,
         },
     ],
 }, { timestamps: true });

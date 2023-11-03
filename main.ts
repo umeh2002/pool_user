@@ -2,7 +2,7 @@ import cors from "cors"
 import express, { Application } from "express"
 import helmet from "helmet"
 import user from "./Router/authRouter"
-
+import friend from "./Router/requestRouter"
 const main =(app:Application)=>{
     app.use(express.json())
     app.use(cors())
@@ -22,6 +22,7 @@ const main =(app:Application)=>{
         }
     })
     app.use("/api", user)
+    app.use("/api", friend)
 }
 
 export default main

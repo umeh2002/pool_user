@@ -7,6 +7,7 @@ const cors_1 = __importDefault(require("cors"));
 const express_1 = __importDefault(require("express"));
 const helmet_1 = __importDefault(require("helmet"));
 const authRouter_1 = __importDefault(require("./Router/authRouter"));
+const requestRouter_1 = __importDefault(require("./Router/requestRouter"));
 const main = (app) => {
     app.use(express_1.default.json());
     app.use((0, cors_1.default)());
@@ -25,5 +26,6 @@ const main = (app) => {
         }
     });
     app.use("/api", authRouter_1.default);
+    app.use("/api", requestRouter_1.default);
 };
 exports.default = main;

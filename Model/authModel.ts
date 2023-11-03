@@ -25,6 +25,12 @@ const userModel = new mongoose.Schema<iUserData>(
         ref: "friends",
       },
     ],
+    pendingRequests: [
+      {
+        type: mongoose.Types.ObjectId,
+        ref: "users",
+      },
+    ],
     accept: {
       type: Boolean,
       default: false,

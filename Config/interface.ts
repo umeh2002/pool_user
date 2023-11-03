@@ -9,7 +9,8 @@ export interface iUser {
   declined?: boolean
   likes?: {}[];
   avatar?: string
-  avatarURL?: string
+  avatarURL?: string,
+  pendingRequests?:string[]
 }
 
 export interface iFriends {

@@ -1,21 +1,25 @@
 import { Request, Response } from "express";
 import userModel from "../Model/authModel";
 import mongoose from "mongoose";
+import { sendAcceptFriendMail, sendDeclineFriendMail, sendFriendRequestMail } from "../utils/email";
 
 export const sendRequest = async (req: Request, res: Response) => {
   try {
     const { userID, friendID } = req.params;
     const { email } = req.body;
 
-    const user = await userModel.findById(userID);
+    const user:any = await userModel.findById(userID);
+    const friend:any = await userModel.findById(friendID);
 
-    if (user) {
+    if (user && friend) {
       const addFriend = await userModel.findByIdAndUpdate(
         friendID,
         { email },
         { new: true }
       );
-
+      sendFriendRequestMail(user, friend).then(()=>{
+        console.log("mail sent")
+      })
       return res.status(201).json({
         message: "request sent",
         data: addFriend,
@@ -55,6 +59,10 @@ export const confirmRequest = async (req: Request, res: Response) => {
     await friend.friends?.push(new mongoose.Types.ObjectId(userID!));
     friend.save();
 
+    sendAcceptFriendMail(user, friend).then(()=>{
+      console.log("sent confirm mail")
+    })
+
     return res.status(201).json({
       message: "Request accepted. Users are now friends.",
       data: { user, friend },
@@ -72,6 +80,7 @@ export const declineRequest = async (req: Request, res: Response) => {
       const { userID, friendID } = req.params;
   
       const friend = await userModel.findById(friendID);
+      const user = await userModel.findById(userID);
   
       if (!friend) {
         return res.status(404).json({
@@ -84,6 +93,10 @@ export const declineRequest = async (req: Request, res: Response) => {
       : [];
   
       await friend.save();
+
+      sendDeclineFriendMail(user, friend).then(()=>{
+        console.log("sent decline mail")
+      })
   
       return res.status(200).json({
         message: "Request declined. Friend request removed.",

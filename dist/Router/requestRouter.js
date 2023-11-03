@@ -6,4 +6,5 @@ const router = (0, express_1.Router)();
 router.route("/:userID/:friendID/send-request").patch(requestController_1.sendRequest);
 router.route("/:userID/:friendID/confirm-request").patch(requestController_1.confirmRequest);
 router.route("/:userID/:friendID/decline-request").patch(requestController_1.declineRequest);
+router.route("/:userID/:friendID/decline-request").patch(requestController_1.declineRequest);
 exports.default = router;

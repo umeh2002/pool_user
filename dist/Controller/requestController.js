@@ -19,11 +19,10 @@ const email_1 = require("../utils/email");
 const sendRequest = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const { userID, friendID } = req.params;
-        const { email } = req.body;
         const user = yield authModel_1.default.findById(userID);
         const friend = yield authModel_1.default.findById(friendID);
         if (user && friend) {
-            const addFriend = yield authModel_1.default.findByIdAndUpdate(friendID, { email }, { new: true });
+            const addFriend = yield authModel_1.default.findByIdAndUpdate(friendID, { new: true });
             (0, email_1.sendFriendRequestMail)(user, friend).then(() => {
                 console.log("mail sent");
             });

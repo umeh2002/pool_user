@@ -6,7 +6,6 @@ import { sendAcceptFriendMail, sendDeclineFriendMail, sendFriendRequestMail } fr
 export const sendRequest = async (req: Request, res: Response) => {
   try {
     const { userID, friendID } = req.params;
-    const { email } = req.body;
 
     const user:any = await userModel.findById(userID);
     const friend:any = await userModel.findById(friendID);
@@ -14,7 +13,6 @@ export const sendRequest = async (req: Request, res: Response) => {
     if (user && friend) {
       const addFriend = await userModel.findByIdAndUpdate(
         friendID,
-        { email },
         { new: true }
       );
       sendFriendRequestMail(user, friend).then(()=>{

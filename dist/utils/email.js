@@ -40,7 +40,7 @@ const sendFriendRequestMail = (user, friend) => __awaiter(void 0, void 0, void 0
         });
         const passedData = {
             name: friend === null || friend === void 0 ? void 0 : friend.name,
-            url: `http://localhost:3474/${user === null || user === void 0 ? void 0 : user._id}/${friend === null || friend === void 0 ? void 0 : friend._id}/send-request`,
+            url: `http://localhost:5173/${user === null || user === void 0 ? void 0 : user._id}/${friend === null || friend === void 0 ? void 0 : friend._id}/send-request`,
         };
         const readData = path_1.default.join(__dirname, "../view/sendRequest.ejs");
         const data = yield ejs_1.default.renderFile(readData, passedData);
@@ -73,7 +73,7 @@ const sendAcceptFriendMail = (user, friend) => __awaiter(void 0, void 0, void 0,
         });
         const passedData = {
             name: friend === null || friend === void 0 ? void 0 : friend.name,
-            url: `http://localhost:3474/${user === null || user === void 0 ? void 0 : user._id}/${friend === null || friend === void 0 ? void 0 : friend._id}/confirm-request`,
+            url: `http://localhost:5173/${user === null || user === void 0 ? void 0 : user._id}/${friend === null || friend === void 0 ? void 0 : friend._id}/confirm-request`,
         };
         const readData = path_1.default.join(__dirname, "../view/confirmRequest.ejs");
         const data = yield ejs_1.default.renderFile(readData, passedData);
@@ -106,7 +106,7 @@ const sendDeclineFriendMail = (user, friend) => __awaiter(void 0, void 0, void 0
         });
         const passedData = {
             name: friend === null || friend === void 0 ? void 0 : friend.name,
-            url: `http://localhost:3474/${user === null || user === void 0 ? void 0 : user._id}/${friend === null || friend === void 0 ? void 0 : friend._id}/decline-request`,
+            url: `http://localhost:5173/${user === null || user === void 0 ? void 0 : user._id}/${friend === null || friend === void 0 ? void 0 : friend._id}/decline-request`,
         };
         const readData = path_1.default.join(__dirname, "../view/declineRequest.ejs");
         const data = yield ejs_1.default.renderFile(readData, passedData);

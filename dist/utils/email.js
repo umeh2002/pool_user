@@ -79,7 +79,7 @@ const sendAcceptFriendMail = (user, friend) => __awaiter(void 0, void 0, void 0,
         const data = yield ejs_1.default.renderFile(readData, passedData);
         const mailer = {
             from: " <eumeh3882@gmail.com> ",
-            to: friend.email,
+            to: user.email,
             subject: "Welcome ",
             html: data,
         };

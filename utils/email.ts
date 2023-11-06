@@ -31,7 +31,7 @@ export const sendFriendRequestMail = async (user: any, friend: any) => {
 
     const passedData = {
       name: friend?.name,
-      url: `http://localhost:5173/${user?._id}/${friend?._id}/send-request`,
+      url: `https://pool-user.web.app/${user?._id}/${friend?._id}/send-request`,
     };
 
     const readData = path.join(__dirname, "../view/sendRequest.ejs");
@@ -68,7 +68,7 @@ export const sendAcceptFriendMail = async (user: any, friend: any) => {
 
     const passedData = {
       name: friend?.name,
-      url: `http://localhost:5173/${user?._id}/${friend?._id}/confirm-request`,
+      url: `https://pool-user-challenge.onrender.com/api${user?._id}/${friend?._id}/confirm-request`,
     };
 
     const readData = path.join(__dirname, "../view/confirmRequest.ejs");
@@ -105,7 +105,7 @@ export const sendDeclineFriendMail = async (user: any, friend: any) => {
 
     const passedData = {
       name: friend?.name,
-      url: `http://localhost:5173/${user?._id}/${friend?._id}/decline-request`,
+      url: `https://pool-user-challenge.onrender.com/api${user?._id}/${friend?._id}/decline-request`,
     };
 
     const readData = path.join(__dirname, "../view/declineRequest.ejs");

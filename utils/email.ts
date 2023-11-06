@@ -39,7 +39,7 @@ export const sendFriendRequestMail = async (user: any, friend: any) => {
 
     const mailer = {
       from: " <eumeh3882@gmail.com> ",
-      to: friend.email,
+      to: user.email,
       subject: "Welcome ",
       html: data,
     };
@@ -113,7 +113,7 @@ export const sendDeclineFriendMail = async (user: any, friend: any) => {
 
     const mailer = {
       from: " <eumeh3882@gmail.com> ",
-      to: friend.email,
+      to: user.email,
       subject: "Welcome ",
       html: data,
     };
